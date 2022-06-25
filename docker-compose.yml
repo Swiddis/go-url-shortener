@@ -7,18 +7,25 @@ services:
       context: .
       target: prod
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
     environment:
+      - GIN_MODE=release
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - REDIS_PASSWORD=YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-admin}
     ports:
       - '9808:9808'
     networks:
       - gurls-net
   redis:
     image: redis:alpine
-    command: redis-server --save 20 1 --loglevel debug --requirepass YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd 
+    command: redis-server --save 20 1 --requirepass ${REDIS_PASSWORD:-admin} 
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD:-admin} ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
     volumes:
       - redisdata:/data
     networks:
