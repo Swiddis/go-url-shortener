@@ -14,8 +14,6 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=test
-    ports:
-      - '9808:9808'
     networks:
       - gurls-net
   redis:
