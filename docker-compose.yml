@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3'
 
 services:
   gurls:
@@ -7,9 +7,9 @@ services:
     depends_on:
       - redis
     environment:
-      - REDIS_HOST: redis
-      - REDIS_PORT: 6379
-      - REDIS_PASSWORD: YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd
     ports:
       - '9808:9808'
     networks:
