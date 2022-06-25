@@ -10,7 +10,7 @@ RUN go mod download
 COPY . .
 
 FROM builder AS test
-ENTRYPOINT ["go", "test", "./..."]
+ENTRYPOINT [ "go", "test", "./..." ]
 
 FROM builder AS build
 RUN go build -o main

@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  gurls-test:
-    image: gurls-test
+  api-test:
+    image: api-test
     build:
-      context: .
+      context: ./api
       target: test
     depends_on:
       redis:
@@ -15,7 +15,7 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=test
     networks:
-      - gurls-net
+      - api-test-net
   redis:
     image: redis:alpine
     command: redis-server --save 20 1 --loglevel notice --requirepass test
@@ -25,9 +25,9 @@ services:
       timeout: 3s
       retries: 30
     networks:
-      - gurls-net
+      - api-test-net
 
 networks:
-  gurls-net:
-    name: gurls-net
+  api-test-net:
+    name: api-test-net
 

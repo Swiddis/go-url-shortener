@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  gurls:
-    image: gurls
+  api:
+    image: api
     build:
-      context: .
+      context: ./api
       target: prod
     depends_on:
       redis:
@@ -17,7 +17,7 @@ services:
     ports:
       - '9808:9808'
     networks:
-      - gurls-net
+      - api-net
   redis:
     image: redis:alpine
     command: redis-server --save 20 1 --requirepass ${REDIS_PASSWORD:-admin} 
@@ -29,12 +29,12 @@ services:
     volumes:
       - redisdata:/data
     networks:
-      - gurls-net
+      - api-net
 
 volumes:
   redisdata:
 
 networks:
-  gurls-net:
-    name: gurls-net
+  api-net:
+    name: api-net
 

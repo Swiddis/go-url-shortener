@@ -24,7 +24,7 @@ docker-compose up --build
 
 Run unit/integration tests with:
 ```sh
-docker-compose -f docker-compose.test.yml up --build --exit-code-from gurls-test
+docker-compose -f docker-compose.test.yml up --build --exit-code-from api-test
 ```
 
 ## Usage
