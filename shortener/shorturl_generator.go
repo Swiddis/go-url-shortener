@@ -5,6 +5,7 @@ import (
    "fmt"
    "github.com/itchyny/base58-go"
    "os"
+   "math/big"
 )
 
 func sha256Of(input string) []byte {
