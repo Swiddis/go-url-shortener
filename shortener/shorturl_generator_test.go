@@ -1,13 +1,13 @@
 package shortener
 
 import (
-    "github.com/strechr/testify/assert"
+    "github.com/stretchr/testify/assert"
     "testing"
 )
 
 const UserId = "e0dba740-fc4b-4977-872c-d360239e6b1a"
 
-func TestShortLinkGenerator(t *Testing.T) {
+func TestShortLinkGenerator(t *testing.T) {
     initialLink_1 := "https://www.guru3d.com/news-story/spotted-ryzen-threadripper-pro-3995wx-processor-with-8-channel-ddr4,2.html"
     shortLink_1 := GenerateShortLink(initialLink_1, UserId)
 

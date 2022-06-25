@@ -3,7 +3,9 @@ version: '3'
 services:
   gurls:
     image: gurls
-    build: .
+    build:
+      context: .
+      target: prod
     depends_on:
       - redis
     environment:
