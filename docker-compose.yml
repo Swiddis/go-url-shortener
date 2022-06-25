@@ -1,0 +1,33 @@
+version: '3.2'
+
+services:
+  gurls:
+    image: gurls
+    build: .
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST: redis
+      - REDIS_PORT: 6379
+      - REDIS_PASSWORD: YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd
+    ports:
+      - '9808:9808'
+    networks:
+      - gurls-net
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel debug --requirepass YBVc5bXoiRlDLxYt9mXtvYPoxLRaDA7m96MBFDhd 
+    volumes:
+      - redisdata:/data
+    networks:
+      - gurls-net
+
+volumes:
+  redisdata:
+
+networks:
+  gurls-net:
+    name: gurls-net
+
