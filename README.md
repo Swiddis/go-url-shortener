@@ -37,7 +37,7 @@ GET http://localhost:9808/
 }
 
 # Shorten a url
-POST http://localhost:9808/create-short-url
+POST http://localhost:9808/
 {
   "long_url": "https://github.com/Swiddis/go-url-shortener",
   "user_id": "0"
