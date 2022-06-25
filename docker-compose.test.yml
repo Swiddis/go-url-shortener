@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  gurls-test:
+    image: gurls-test
+    build:
+      context: .
+      target: test
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - GIN_MODE=debug
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=test
+    ports:
+      - '9808:9808'
+    networks:
+      - gurls-net
+  redis:
+    image: redis:alpine
+    command: redis-server --save 20 1 --loglevel notice --requirepass test
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a 'test' ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    networks:
+      - gurls-net
+
+networks:
+  gurls-net:
+    name: gurls-net
+
