@@ -17,7 +17,7 @@ Optionally, create environment variables:
 REDIS_PASSWORD=[a secure password] # defaults to 'admin'
 ```
 
-deploy the application with:
+Deploy the application with:
 ```sh
 docker-compose up --build
 ```
