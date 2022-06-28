@@ -45,10 +45,11 @@ docker-compose -f docker-compose.test.yml up --build --exit-code-from api-test
 The project defines 3 endpoints for running a simple URL shortener:
 
 ```sh
-# Ping endpoint
-GET http://localhost:9808/
+# Check if running
+GET http://localhost:8080/health/ready
 > {
-  "message": "Hello, World! Looks like the API is running."
+  "status": "READY"
+  "redis": "READY"
 }
 
 # Shorten a url
