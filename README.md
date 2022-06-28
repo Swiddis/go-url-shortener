@@ -9,7 +9,6 @@ This is mostly an experiment in me both learning Go and getting better at Docker
 - Fully containerized in Docker
 - Testing environment also in Docker
 - Load balancing through Nginx
-  - Pass `--scale api=N` to balance between `N` instances.
 - More detailed healthcheck endpoint
 
 ## Getting Started
