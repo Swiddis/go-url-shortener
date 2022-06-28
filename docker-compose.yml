@@ -21,6 +21,10 @@ services:
       retries: 5
     ports:
       - '9808'
+    deploy:
+      mode: replicated
+      replicas: ${API_REPLICAS:-2}
+      endpoint_mode: dnsrr
     networks:
       - api-net
   redis:

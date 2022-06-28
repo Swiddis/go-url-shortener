@@ -25,13 +25,14 @@ The project is fully tested and deployed in Docker through `docker-compose`.
 Optionally, create environment variables:
 
 ```sh
+API_REPLICAS=[number] # defaults to 2
 REDIS_PASSWORD=[a secure password] # defaults to 'admin'
 ```
 
 Deploy the application with:
 
 ```sh
-docker-compose up --build [--scale api=N]
+docker-compose up --build
 ```
 
 Run unit/integration tests with:
