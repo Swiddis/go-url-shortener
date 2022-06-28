@@ -15,12 +15,12 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=${REDIS_PASSWORD:-admin}
     healthcheck:
-      test: ["CMD", "curl http://localhost:9808/health/live || grep LIVE"]
+      test: ["CMD", "curl http://localhost:9808/health/live | grep LIVE"]
       interval: 1s
       timeout: 3s
       retries: 5
     ports:
-      - '9808:9808'
+      - '9808'
     networks:
       - api-net
   redis:
