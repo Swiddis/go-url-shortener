@@ -11,16 +11,19 @@ import (
 func main() {
 	r := gin.Default()
 	r.SetTrustedProxies(nil)
-	r.GET("/", func(c *gin.Context) {
+
+	r.GET("/health/ready", func(c *gin.Context) {
+		handler.IsReady(c)
+	})
+	r.GET("/health/live", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Hello, World! Looks like the API is running.",
+			"status": "LIVE",
 		})
 	})
 
 	r.POST("/", func(c *gin.Context) {
 		handler.CreateShortUrl(c)
 	})
-
 	r.GET("/:shortUrl", func(c *gin.Context) {
 		handler.HandleShortUrlRedirect(c)
 	})

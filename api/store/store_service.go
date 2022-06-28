@@ -37,6 +37,11 @@ func InitializeStore() *StorageService {
 	return storeService
 }
 
+func Ping() bool {
+	_, err := storeService.redisClient.Ping(ctx).Result()
+	return err == nil
+}
+
 func SaveUrlMapping(shortUrl, originalUrl, userId string) {
 	err := storeService.redisClient.Set(ctx, shortUrl, originalUrl, CacheDuration).Err()
 	if err != nil {

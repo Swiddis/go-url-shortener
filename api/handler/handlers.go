@@ -13,6 +13,23 @@ type UrlCreationRequest struct {
 	UserId  string `json:"user_id" binding:"required"`
 }
 
+func IsReady(c *gin.Context) {
+	isReady := "READY"
+
+	var redisResponse string
+	if store.Ping() {
+		redisResponse = "READY"
+	} else {
+		isReady = "NOT READY"
+		redisResponse = "NOT READY"
+	}
+
+	c.JSON(200, gin.H{
+		"status": isReady,
+		"redis":  redisResponse,
+	})
+}
+
 func CreateShortUrl(c *gin.Context) {
 	var creationRequest UrlCreationRequest
 	if err := c.ShouldBindJSON(&creationRequest); err != nil {

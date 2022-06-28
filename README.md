@@ -1,34 +1,43 @@
 # Go URL Shortener
+
 This is a url shortener based on [Eddy Wm's implementation](https://www.eddywm.com/lets-build-a-url-shortener-in-go/). Written in Go, deployed with Docker.
 
 ## Description
+
 This is mostly an experiment in me both learning Go and getting better at Docker. To do so, I've started with the base provided by [Eddy Wm](https://www.eddywm.com/), and added to it as I've seen fit. There's still a bit to be done.
 
 ## Getting Started
 
 ### Dependencies
+
 * [Docker](https://www.docker.com/)
 
 ### Running
+
 The project is fully tested and deployed in Docker through `docker-compose`.
 
 Optionally, create environment variables:
+
 ```sh
 REDIS_PASSWORD=[a secure password] # defaults to 'admin'
 ```
 
 Deploy the application with:
+
 ```sh
 docker-compose up --build
 ```
 
 Run unit/integration tests with:
+
 ```sh
 docker-compose -f docker-compose.test.yml up --build --exit-code-from api-test
 ```
 
 ## Usage
+
 The project defines 3 endpoints for running a simple URL shortener:
+
 ```sh
 # Ping endpoint
 GET http://localhost:9808/
@@ -53,6 +62,7 @@ GET http://localhost:9808/ZT5syNhZ
 ```
 
 ## To-do
+
 * Web front-end
 * Load balancer
 * More sophisticated storage scheme
