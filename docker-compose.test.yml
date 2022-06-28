@@ -14,11 +14,6 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=test
-    healthcheck:
-      test: ["CMD", "curl http://localhost:9808/health/live || grep LIVE"]
-      interval: 1s
-      timeout: 3s
-      retries: 5
     networks:
       - api-test-net
   redis:

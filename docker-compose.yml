@@ -35,6 +35,16 @@ services:
       - redisdata:/data
     networks:
       - api-net
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+    ports:
+      - '8080:8080'
+    networks:
+      - api-net
 
 volumes:
   redisdata:
