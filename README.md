@@ -4,13 +4,18 @@ This is a url shortener based on [Eddy Wm's implementation](https://www.eddywm.c
 
 ## Description
 
-This is mostly an experiment in me both learning Go and getting better at Docker. To do so, I've started with the base provided by [Eddy Wm](https://www.eddywm.com/), and added to it as I've seen fit. There's still a bit to be done.
+This is mostly an experiment in me both learning Go and getting better at Docker. To do so, I've started with the base provided by [Eddy Wm](https://www.eddywm.com/), and added to it as I've seen fit. There's still a bit to be done. Some differences:
+
+- Fully containerized in Docker
+- Testing environment also in Docker
+- Load balancing through Nginx
+  - Pass `--scale api=N` to balance between `N` instances.
 
 ## Getting Started
 
 ### Dependencies
 
-* [Docker](https://www.docker.com/)
+- [Docker](https://www.docker.com/)
 
 ### Running
 
@@ -63,10 +68,9 @@ GET http://localhost:9808/ZT5syNhZ
 
 ## To-do
 
-* Web front-end
-* Load balancer
-* More sophisticated storage scheme
-  * Use Redis as a cache
-  * Use a SQL database as persistent storage
-* Switch from deprecated `docker-compose` to `docker compose`
-* General functionality additions
+- Web front-end
+- More sophisticated storage scheme
+  - Use Redis as a cache
+  - Use a SQL database as persistent storage
+- Switch from deprecated `docker-compose` to `docker compose`
+- General functionality additions
