@@ -30,7 +30,7 @@ REDIS_PASSWORD=[a secure password] # defaults to 'admin'
 Deploy the application with:
 
 ```sh
-docker-compose up --build
+docker-compose up --build [--scale api=N]
 ```
 
 Run unit/integration tests with:
