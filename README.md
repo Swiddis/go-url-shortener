@@ -53,18 +53,18 @@ GET http://localhost:8080/health/ready
 }
 
 # Shorten a url
-POST http://localhost:9808/
+POST http://localhost:8080/
 {
   "long_url": "https://github.com/Swiddis/go-url-shortener",
   "user_id": "0"
 }
 > {
   "message": "short url created successfully",
-  "short_url": "http://localhost:9808/ZT5syNhZ"
+  "short_url": "http://localhost:8080/ZT5syNhZ"
 }
 
 # Retrieve a URL
-GET http://localhost:9808/ZT5syNhZ
+GET http://localhost:8080/ZT5syNhZ
 > [Redirect to https://github.com/Swiddis/go-url-shortener]
 ```
 
