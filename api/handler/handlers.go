@@ -1,10 +1,11 @@
 package handler
 
 import (
+	"net/http"
+
 	"github.com/Swiddis/go-url-shortener/shortener"
 	"github.com/Swiddis/go-url-shortener/store"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 type UrlCreationRequest struct {

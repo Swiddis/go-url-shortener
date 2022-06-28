@@ -1,8 +1,9 @@
 package shortener
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 const UserId = "e0dba740-fc4b-4977-872c-d360239e6b1a"

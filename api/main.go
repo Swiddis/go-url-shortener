@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/Swiddis/go-url-shortener/handler"
 	"github.com/Swiddis/go-url-shortener/store"
 	"github.com/gin-gonic/gin"

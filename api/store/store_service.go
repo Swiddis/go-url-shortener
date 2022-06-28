@@ -3,9 +3,10 @@ package store
 import (
 	"context"
 	"fmt"
-	"github.com/go-redis/redis/v8"
 	"os"
 	"time"
+
+	"github.com/go-redis/redis/v8"
 )
 
 type StorageService struct {
